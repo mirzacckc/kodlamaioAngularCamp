@@ -1014,6 +1014,18 @@
       "address1": "Keçiören",
       "address2": "Ayvalık",
       "id": 1
+    },
+    {
+      "userFirstName": "Beyza",
+      "userLastName": "Beyaz",
+      "phone": "5897415963",
+      "email": "bb@gmail.com",
+      "country": "Turkey",
+      "cityId": 18,
+      "cityName": "Çankırı",
+      "address1": "Ankara",
+      "address2": "Ankara",
+      "id": 2
     }
   ]
 }
