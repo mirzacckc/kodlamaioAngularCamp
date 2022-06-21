@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Image</th>
+        <th scope="col">Description</th>
+        <th scope="col">Daily Price</th>
+        <th scope="col">Brand Name</th>
+        <th scope="col">Color Name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>       
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let car of cars">
+        <th scope="row">{{car.id}}</th>
+        <td><img src="{{car.image}}" style="width:40px ;"/></td>
+        <td>{{car.description}}</td>
+        <td>{{car.dailyPrice}}</td>
+        <td>{{car.brandName}}</td>
+        <td>{{car.colorName}}</td>
+        <td><button type="button" class="btn btn-link"><i class="fa fa-trash-can" style="color:red ;" (click)="carDelete(car.id)" ></i></button></td>
+        <td><button type="button" class="btn btn-link"><i class="fa fa-pen-to-square" style="color:green ;" (click)=" selectedCarId(car)" ></i></button></td>
+        <td><button type="button" class="btn btn-warning" style="color:white"  routerLink="/car/rent/{{car.id}}" (click)="addToCart(car)" ><i class="fa-solid fa-check" style="color:white"></i><i class="fa-solid fa-car-side" style="color:white; padding-right:5px;"></i>RENT</button></td>
+      </tr>
+    </tbody>
+</table>
+<p-toast></p-toast>

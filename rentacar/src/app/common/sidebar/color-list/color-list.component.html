@@ -1,0 +1,13 @@
+
+<ul class="list-group" >
+    <a class="list-group-item list-group-item-disabled d-flex justify-content-between" style="background-color: blue; color:aliceblue;">
+        <div style="font-size:20px;"><b>Color</b></div>
+        <div class="mr-5"><button type="button" class="btn btn-primary"><i class="fa fa-plus" routerLink="/color/add"></i></button></div></a>
+    <div *ngFor="let color of colors">
+        <li class="list-group-item list-group-item-action d-flex justify-content-between" >
+            <div (click)="selectColorId(color)"><img src="{{color.image}}" style="width:40px ; margin-right: 20px;">{{color.name}}</div>
+            <div class="mr-5"><button type="button" class="btn btn-link" (click)="carDelete(color.id)"><i class="fa fa-trash-can" style="color:red ;" ></i></button></div>
+        </li>
+    </div>       
+  </ul>
+  <p-toast></p-toast>

@@ -1,0 +1,17 @@
+<div class="container w-75">
+    <h3 class="m-3">Update Brand</h3>
+    <form [formGroup]="brandUpdateForm" (ngSubmit)="update()" >
+      <div class="form-group m-3">
+        <label for="name" class="block">Product Name</label>
+        <input id="name" formControlName="name" type="text" aria-describedby="username-help" class="form-control" [(ngModel)]="brand.name" pInputText />
+        <small *ngIf="brandUpdateForm.get('name').hasError('required') && brandUpdateForm.get('name').dirty" id="username-help" class="p-error block ng-invalid ng-dirty">Name is not available.</small>
+      </div>
+      <div class="form-group m-3">
+        <label for="image" class="block">Image</label>
+        <input id="image" formControlName="image" type="text" aria-describedby="image-help" class="form-control" [(ngModel)]="brand.image" pInputText />
+        <small *ngIf="brandUpdateForm.get('image').hasError('required') && brandUpdateForm.get('image').dirty" id="image-help" class="p-error block ng-invalid ng-dirty">İmage is not available.</small>
+      </div>
+      <button type="submit" class="btn btn-info m-3" [disabled]="brandUpdateForm.invalid">Update</button>    
+    </form>
+  </div>
+  <p-toast></p-toast>

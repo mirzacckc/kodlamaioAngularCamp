@@ -1,0 +1,17 @@
+<div class="container w-75">
+    <h3 class="m-3">Add New Color</h3>
+    <form [formGroup]="colorAddForm" (ngSubmit)="add()" >
+      <div class="form-group m-3">
+        <label for="name" class="block">Color Name</label>
+        <input id="name" formControlName="name" type="text" aria-describedby="username-help" class="form-control" pInputText />
+        <small *ngIf="colorAddForm.get('name').hasError('required') && colorAddForm.get('name').dirty" id="username-help" class="p-error block ng-invalid ng-dirty">Brand Name is not available.</small>
+      </div>
+      <div class="form-group m-3">
+        <label for="image" class="block">Image</label>
+        <input id="image" formControlName="image" type="text" aria-describedby="image-help" class="form-control" pInputText />
+        <small *ngIf="colorAddForm.get('image').hasError('required') && colorAddForm.get('image').dirty" id="image-help" class="p-error block ng-invalid ng-dirty">unitPrice is not available.</small>
+      </div>
+      <button type="submit" class="btn btn-success m-3" [disabled]="colorAddForm.invalid">Add</button>  
+    </form>
+  </div>
+  <p-toast></p-toast>

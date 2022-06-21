@@ -1,0 +1,46 @@
+<br>
+<p style="font-size:40px; text-align:center ;">Details</p>
+<div class="card mb-3" style="max-width: 100%;">
+  <div class="row g-0">
+    <div class="col-md-6">
+      <img src="{{car.image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h5 class="card-title">{{car.brandName}}</h5>
+        <p class="card-text">{{car.description}}<br>{{car.dailyPrice}} $</p>
+        <p class="card-text"><small class="text-muted">Without TAX.</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<p style="font-size:40px; text-align:center ;">Additional Services</p>
+<div *ngFor="let additionalService of additionalServices">
+    <hr>
+    <table class="table">
+            <tr>
+            <td><img src="{{additionalService.image}}" style="width:80px ;"/></td>
+            <td style="width:400px">{{additionalService.name}}</td>
+            <td style="width:200px">{{additionalService.price}} $</td>
+            <td><i class="fa-solid fa-angle-down fa-xl" style="color:black"></i>Details</td>
+            <td><button class="btn btn-light"><i class="fa-solid fa-circle-plus fa-xl" style="color: black" (click)="addToCart2(additionalService)"></i>Ekle</button></td>
+            </tr>
+    </table>
+    <div class="div">
+        <a>
+           {{additionalService.description}}
+        </a>
+    </div>
+    <hr>
+</div>
+<br>
+<div class="row">
+ <div class="col-10"></div>
+ <div class="col-2">
+   <button class="btn btn-primary" style="width:150px ;" routerLink="/cart-detail">Go to Cart</button>
+ </div>
+</div>
+<br><br>
+
+<p-toast></p-toast>

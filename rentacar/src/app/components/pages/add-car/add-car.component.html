@@ -1,0 +1,38 @@
+<div class="container w-75">
+    <h3 class="m-3">Add New Car</h3>
+    <form [formGroup]="carAddForm" (ngSubmit)="add()" >
+      <div class="form-group m-3">
+        <label for="brandId" class="block">Brand Name</label>
+        <select class="form-control" required name="brandId" id="brandId" formControlName="brandId" aria-describedby="brandName-help">
+          <option *ngFor="let brand of brands"  [value]="brand.id" >
+            {{brand.name}}            
+          </option>
+        </select>
+      </div>
+      <div class="form-group m-3">
+        <label for="colorId" class="block">Color Name</label>
+        <select class="form-control" required name="colorId" id="colorId" formControlName="colorId" aria-describedby="colorName-help">
+          <option *ngFor="let color of colors"  [value]="color.id" >
+            {{color.name}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group m-3">
+        <label for="dailyPrice" class="block">Daily Price</label>
+        <input id="dailyPrice" formControlName="dailyPrice" type="text" aria-describedby="username-help" class="form-control" pInputText />
+        <small *ngIf="carAddForm.get('dailyPrice').hasError('required') && carAddForm.get('dailyPrice').dirty" id="username-help" class="p-error block ng-invalid ng-dirty">Name is not available.</small>
+      </div>
+      <div class="form-group m-3">
+        <label for="description" class="block">Description</label>
+        <input id="description" formControlName="description" type="text" aria-describedby="username-help" class="form-control" pInputText />
+        <small *ngIf="carAddForm.get('description').hasError('required') && carAddForm.get('description').dirty" id="username-help" class="p-error block ng-invalid ng-dirty">Name is not available.</small>
+      </div>
+      <div class="form-group m-3">
+        <label for="image" class="block">Image</label>
+        <input id="image" formControlName="image" type="text" aria-describedby="image-help" class="form-control" pInputText />
+        <small *ngIf="carAddForm.get('image').hasError('required') && carAddForm.get('image').dirty" id="image-help" class="p-error block ng-invalid ng-dirty">unitPrice is not available.</small>
+      </div>
+      <button type="submit" class="btn btn-success m-3" [disabled]="carAddForm.invalid">Add</button>  
+    </form>
+  </div>
+  <p-toast></p-toast>

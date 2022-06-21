@@ -1,0 +1,17 @@
+<div class="container w-75">
+    <h3 class="m-3">Add New Brand</h3>
+    <form [formGroup]="brandAddForm" (ngSubmit)="add()" >
+      <div class="form-group m-3">
+        <label for="name" class="block">Brand Name</label>
+        <input id="name" formControlName="name" type="text" aria-describedby="username-help" class="form-control" pInputText />
+        <small *ngIf="brandAddForm.get('name').hasError('required') && brandAddForm.get('name').dirty" id="username-help" class="p-error block ng-invalid ng-dirty">Name is not available.</small>
+      </div>
+      <div class="form-group m-3">
+        <label for="image" class="block">Image</label>
+        <input id="image" formControlName="image" type="text" aria-describedby="image-help" class="form-control" pInputText />
+        <small *ngIf="brandAddForm.get('image').hasError('required') && brandAddForm.get('image').dirty" id="image-help" class="p-error block ng-invalid ng-dirty">unitPrice is not available.</small>
+      </div>
+      <button type="submit" class="btn btn-success m-3" [disabled]="brandAddForm.invalid">Add</button>  
+    </form>
+  </div>
+  <p-toast></p-toast>

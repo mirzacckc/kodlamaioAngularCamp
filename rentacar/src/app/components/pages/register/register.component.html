@@ -1,0 +1,27 @@
+<div class="container">
+    <h3 class="m-3 text-center">Sign-Up</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="register()" >
+      <div class="form-group m-3">
+        <label for="firstName" class="block">First Name</label>
+        <input id="firstName" formControlName="firstName" type="text" aria-describedby="firstName-help" class="form-control" [(ngModel)]="user.firstName" pInputText />
+        <small *ngIf="registerForm.get('firstName').hasError('required') && registerForm.get('firstName').dirty" id="firstName-help" class="p-error block ng-invalid ng-dirty">Name is not available.</small>
+      </div>
+      <div class="form-group m-3">
+        <label for="lastName" class="block">Last Name</label>
+        <input id="lastName" formControlName="lastName" type="text" aria-describedby="lastName-help" class="form-control" [(ngModel)]="user.lastName" pInputText />
+        <small *ngIf="registerForm.get('lastName').hasError('required') && registerForm.get('lastName').dirty" id="lastName-help" class="p-error block ng-invalid ng-dirty">LastName is not available.</small>
+      </div>
+      <div class="form-group m-3">
+        <label for="password" class="block">Password</label>
+        <input id="password" formControlName="password" type="password" aria-describedby="password-help" class="form-control" [(ngModel)]="user.password" pInputText />
+        <small *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').dirty" id="password-help" class="p-error block ng-invalid ng-dirty">Password is not available.</small>
+      </div>   
+      <div class="form-group m-3">
+        <label for="email" class="block">Email</label>
+        <input id="email" formControlName="email" type="email" email aria-describedby="email-help" class="form-control" [(ngModel)]="user.email" pInputText />
+        <small *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').dirty" id="email-help" class="p-error block ng-invalid ng-dirty">Email is not available.</small>
+      </div>     
+      <button pButton label="Register" type="submit" class="p-button-success m-3" icon="pi pi-check" iconPos="left"  [disabled]="registerForm.invalid"></button>  
+    </form>
+  </div>
+  

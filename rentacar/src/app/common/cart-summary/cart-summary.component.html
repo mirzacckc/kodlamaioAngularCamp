@@ -1,0 +1,22 @@
+
+<li class="btn-group">
+    <a class="btn btn-primary dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Your Cart
+    </a>    
+    <ul class="dropdown-menu">
+      <p>Car</p>
+      <li *ngFor="let cartItem of cartItems"><a
+         class="dropdown-item">
+         <span class="badge bg-warning" style="padding-right:10px ;">{{cartItem.quantity}}</span>{{cartItem.car.brandName}}<span class="badge bg-danger" (click)="deleteCartItem(cartItem.car)">Sil</span></a></li>
+      <li><hr class="dropdown-divider"></li>
+      <p>Additional Services</p>
+      <li *ngFor="let additionalCartItem of additionalCartItems"><a
+        class="dropdown-item">
+        <span class="badge bg-warning" style="padding-right:10px ;">{{additionalCartItem.quantity}}</span>{{additionalCartItem.additionalService.name}}<span class="badge bg-danger" (click)="deleteAdditionalCartItem(additionalCartItem.additionalService)" >Sil</span></a></li>
+     <li><hr class="dropdown-divider"></li>
+     <p class="ms-3">Toplam: {{ cartService.getTotal()}}</p>
+     <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" routerLink="/cart-detail">Sepete git</a></li>
+    </ul>
+  </li>
+  
